@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>三栏iframe布局</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+        }
+        .iframe-container {
+            display: flex;
+            width: 100%;
+            height: 100vh;
+        }
+        .iframe-wrapper {
+            width: 33.33%;
+            height: 100%;
+            border: none;
+            overflow: hidden;
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        .url-input {
+            width: 30%;
+            padding: 8px;
+            margin: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .header {
+            padding: 10px;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div>
+            <input type="text" class="url-input" id="url1" placeholder="输入第一个iframe的URL" value="https://www.baidu.com">
+            <input type="text" class="url-input" id="url2" placeholder="输入第二个iframe的URL" value="https://www.google.com">
+            <input type="text" class="url-input" id="url3" placeholder="输入第三个iframe的URL" value="https://www.bing.com">
+        </div>
+        <button onclick="loadIframes()">加载</button>
+    </div>
+    
+    <div class="iframe-container">
+        <div class="iframe-wrapper">
+            <iframe id="iframe1" src="https://www.baidu.com"></iframe>
+        </div>
+        <div class="iframe-wrapper">
+            <iframe id="iframe2" src="https://www.google.com"></iframe>
+        </div>
+        <div class="iframe-wrapper">
+            <iframe id="iframe3" src="https://www.bing.com"></iframe>
+        </div>
+    </div>
+
+    <script>
+        function loadIframes() {
+            const url1 = document.getElementById('url1').value;
+            const url2 = document.getElementById('url2').value;
+            const url3 = document.getElementById('url3').value;
+            
+            document.getElementById('iframe1').src = url1;
+            document.getElementById('iframe2').src = url2;
+            document.getElementById('iframe3').src = url3;
+        }
+    </script>
+</body>
+</html>
